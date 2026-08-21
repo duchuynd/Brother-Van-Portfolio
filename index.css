@@ -1205,11 +1205,19 @@ header {
 
 .president-tabs-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   gap: 8px;
   border-bottom: 2px solid var(--border-light);
   padding-bottom: 8px;
   margin-bottom: 20px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.president-tabs-nav::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .tab-btn {
@@ -1225,6 +1233,8 @@ header {
   transition: all var(--transition-fast);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .tab-btn:hover {
